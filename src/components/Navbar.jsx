@@ -116,15 +116,23 @@ const Navbar = () => {
         )}
         <img
           onClick={() => setShowMenu(true)}
-          className="w-5 sm:w-6 md:hidden flex-shrink-0"
+          className="w-5 sm:w-6 md:hidden cursor-pointer"
           src={assets.menu_icon}
           alt=""
         />
         {/* ----- Mobile Menu ----- */}
         <div
-          className={` ${
-            showMenu ? "fixed w-full" : "h-0 w-0"
-          } md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}
+          className={`fixed top-0 right-0 bottom-0 z-50 md:hidden w-full
+    overflow-hidden
+    bg-white/70 backdrop-blur-2xl
+    border-l border-white/50 shadow-2xl
+    transition-all duration-300 ease-in-out
+    ${
+      showMenu
+        ? "opacity-100 translate-x-0 visible"
+        : "opacity-0 translate-x-full invisible"
+    }
+  `}
         >
           <div className="flex items-center justify-between px-5 py-6">
             <img
@@ -138,7 +146,7 @@ const Navbar = () => {
               alt=""
             />
             <img
-              className="w-7"
+              className="w-7 cursor-pointer"
               onClick={() => setShowMenu(false)}
               src={assets.cross_icon}
               alt=""
