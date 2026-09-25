@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Outfit;
+}
+
+.active hr {
+  @apply block;
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+/* from previous code i.e healthmate */
+
+@layer components {
+  .text__para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+  }
+
+  .form__label {
+    @apply text-textColor font-semibold text-[16px] mb-2;
+  }
+
+  .form__input {
+    @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none 
+    focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor 
+    rounded-md;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .text__para {
+    @apply text-[16px] leading-7 mt-3;
+  }
+}
+
+@media (max-width: 740px) {
+  .active p {
+    @apply text-white bg-primary;
+  }
+}
+
+.scrollbar-visible {
+  scrollbar-width: auto;
+  scrollbar-color: #9ca3af #e5e7eb;
+}
+
+.scrollbar-visible::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 10px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
