@@ -43,11 +43,15 @@ const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex items-center gap-4">
-        <NavLink to="http://localhost:5174/" target="_blank">
+        <a
+          href="https://cure-connect-admin-lilac.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <p className="border px-5 py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium">
             Admin Login
           </p>
-        </NavLink>
+        </a>
         {token && userData ? (
           <div className="flex items-center gap-2 cursor-pointer group relative">
             <img className="w-8 rounded-full" src={userData.image} alt="" />
