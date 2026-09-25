@@ -10,6 +10,8 @@ const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+
   const logout = () => {
     setToken(false);
     localStorage.removeItem("token");
@@ -48,15 +50,26 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="border items-center px-3 py-1.5 md:px-5 md:py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium text-xs md:text-sm">
+          <p className="border px-3 py-2 md:px-5 md:py-2 rounded-full border-gray-600 text-gray-700 font-medium text-xs md:text-sm text-center whitespace-nowrap">
             Admin Login
           </p>
         </a>
         {token && userData ? (
-          <div className="flex items-center gap-2 cursor-pointer group relative">
+          <div
+            onClick={() => {
+              if (window.innerWidth < 768) {
+                setShowProfileMenu((prev) => !prev);
+              }
+            }}
+            className="flex items-center gap-2 cursor-pointer group relative"
+          >
             <img className="w-8 rounded-full" src={userData.image} alt="" />
             <img className="w-2.5" src={assets.dropdown_icon} alt="" />
-            <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
+            <div
+              className={`absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 ${
+                showProfileMenu ? "block" : "hidden"
+              } md:group-hover:block`}
+            >
               <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4">
                 <p
                   onClick={() => navigate("/my-profile")}
