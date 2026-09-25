@@ -122,15 +122,15 @@ const Navbar = () => {
         />
         {/* ----- Mobile Menu ----- */}
         <div
-          className={`fixed top-0 right-0 bottom-0 z-50 md:hidden w-full
+          className={`fixed inset-0 z-50 md:hidden w-full
     overflow-hidden
     bg-white/70 backdrop-blur-2xl
     border-l border-white/50 shadow-2xl
-    transition-all duration-300 ease-in-out
+    transform transition-transform duration-300 ease-in-out
     ${
       showMenu
-        ? "opacity-100 translate-x-0 visible"
-        : "opacity-0 translate-x-full invisible"
+        ? "translate-x-0 pointer-events-auto"
+        : "translate-x-full pointer-events-none"
     }
   `}
         >
