@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
       <img
         onClick={() => navigate("/")}
-        className="w-32 md:w-40 cursor-pointer"
+        className="w-28 md:w-40 cursor-pointer"
         src={assets.mainlogo}
         alt=""
       />
@@ -42,13 +42,13 @@ const Navbar = () => {
           <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
       </ul>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         <a
           href="https://cure-connect-admin-lilac.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="border px-5 py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium">
+          <p className="border px-3 py-1.5 md:px-5 md:py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium text-xs md:text-sm">
             Admin Login
           </p>
         </a>
@@ -79,7 +79,7 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="bg-primary text-white px-5 py-2 rounded-full font-light md:block"
+            className="bg-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-light text-xs md:text-sm"
           >
             Create Account
           </button>
