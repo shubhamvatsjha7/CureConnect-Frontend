@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
@@ -11,6 +11,23 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        window.innerWidth < 768 &&
+        !event.target.closest(".profile-dropdown")
+      ) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const logout = () => {
     setToken(false);
@@ -61,7 +78,7 @@ const Navbar = () => {
                 setShowProfileMenu((prev) => !prev);
               }
             }}
-            className="flex items-center gap-2 cursor-pointer group relative"
+            className="profile-dropdown flex items-center gap-2 cursor-pointer group relative"
           >
             <img className="w-8 rounded-full" src={userData.image} alt="" />
             <img className="w-2.5" src={assets.dropdown_icon} alt="" />
