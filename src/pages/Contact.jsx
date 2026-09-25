@@ -23,7 +23,7 @@ const Contact = () => {
         },
         (error) => {
           console.log("FAILED...", error.text);
-        }
+        },
       );
   };
 
@@ -48,16 +48,16 @@ const Contact = () => {
             Darbhanga <br /> Bihar-846001
           </p>
           <p className="text-gray-500">
-            <a href="tel://+918002812633" target="_blank">
-              Tel: +91 9341 520876
+            <a href="tel://+919341520876" target="_blank">
+              Tel: +91 9341520876
             </a>{" "}
             <br />{" "}
             <a href="mailto:shubhamvatsjha7@gmail.com" target="_blank">
-              Email: sonu@gmail.com
+              Email: shubhamvatsjha7@gmail.com
             </a>
           </p>
           <p className="font-semibold text-lg text-gray-600">
-            Careers at CURE CONNECT
+            Careers at CureConnect
           </p>
           <p className="text-gray-500">Want to join us as Doctor?</p>
           <a href="https://forms.gle/wvqj9fBwbRHRadRZ7" target="_blank">
