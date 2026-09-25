@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
@@ -10,6 +10,25 @@ const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        window.innerWidth < 768 &&
+        !event.target.closest(".profile-dropdown")
+      ) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const logout = () => {
     setToken(false);
     localStorage.removeItem("token");
@@ -17,10 +36,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-white/60 backdrop-blur-lg flex items-center justify-between text-sm py-4 mb-5 border-b border-white/40 shadow-sm">
+    <div className="sticky top-0 z-50 bg-white flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
       <img
         onClick={() => navigate("/")}
-        className="w-28 md:w-40 cursor-pointer"
+        className="w-[105px] sm:w-32 md:w-40 cursor-pointer"
         src={assets.mainlogo}
         alt=""
       />
@@ -42,21 +61,32 @@ const Navbar = () => {
           <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
       </ul>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-3">
         <a
           href="https://cure-connect-admin-lilac.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="border px-5 py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium">
+          <p className="border px-3 sm:px-5 py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium whitespace-nowrap text-xs sm:text-sm">
             Admin Login
           </p>
         </a>
         {token && userData ? (
-          <div className="flex items-center gap-2 cursor-pointer group relative">
+          <div
+            onClick={() => {
+              if (window.innerWidth < 768) {
+                setShowProfileMenu((prev) => !prev);
+              }
+            }}
+            className="profile-dropdown flex items-center gap-2 cursor-pointer group relative"
+          >
             <img className="w-8 rounded-full" src={userData.image} alt="" />
             <img className="w-2.5" src={assets.dropdown_icon} alt="" />
-            <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
+            <div
+              className={`absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 ${
+                showProfileMenu ? "block" : "hidden"
+              } md:group-hover:block`}
+            >
               <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4">
                 <p
                   onClick={() => navigate("/my-profile")}
@@ -79,14 +109,14 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="bg-primary text-white px-5 py-2 rounded-full font-light md:block"
+            className="bg-primary text-white px-3 sm:px-5 py-2 rounded-full font-light md:block whitespace-nowrap text-xs sm:text-sm"
           >
             Create Account
           </button>
         )}
         <img
           onClick={() => setShowMenu(true)}
-          className="w-6 md:hidden"
+          className="w-5 sm:w-6 md:hidden flex-shrink-0"
           src={assets.menu_icon}
           alt=""
         />
