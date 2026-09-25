@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
+    <div className="sticky top-0 z-50 bg-white/60 backdrop-blur-lg flex items-center justify-between text-sm py-4 mb-5 border-b border-white/40 shadow-sm">
       <img
         onClick={() => navigate("/")}
         className="w-28 md:w-40 cursor-pointer"
