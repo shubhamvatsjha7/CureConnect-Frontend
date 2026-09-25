@@ -48,7 +48,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="border px-3 py-1.5 md:px-5 md:py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium text-xs md:text-sm">
+          <p className="border items-center px-3 py-1.5 md:px-5 md:py-2 rounded-full border-gray-600 text-gray-700 md:block font-medium text-xs md:text-sm">
             Admin Login
           </p>
         </a>
