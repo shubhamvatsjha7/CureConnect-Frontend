@@ -39,7 +39,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 bg-white flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
       <img
         onClick={() => navigate("/")}
-        className="w-[120px] sm:w-32 md:w-40 cursor-pointer"
+        className="w-[110px] sm:w-32 md:w-40 cursor-pointer"
         src={assets.mainlogo}
         alt=""
       />
