@@ -19,10 +19,12 @@ const Footer = () => {
             alt=""
           />
           <p className="w-full md:w-2/3 text-gray-600 leading-6">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui
-            provident eaque dignissimos at minus rem doloremque quis porro, sit
-            doloribus totam magni praesentium in accusantium sed quibusdam ea
-            consequatur assumenda?
+            CureConnect helps you find the right doctor and book appointments
+            with ease. Get access to trusted healthcare professionals and manage
+            your appointments all in one place. Explore doctors by specialty,
+            check their availability, and choose a convenient time for your
+            visit. Our goal is to make healthcare simpler, faster, and more
+            accessible for everyone.
           </p>
         </div>
 
@@ -74,10 +76,10 @@ const Footer = () => {
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-2 text-gray-600">
             <a href="tel://+919341520876" target="_blank">
-              <li>+91 9999999999</li>
+              <li>+91 9341520876</li>
             </a>
             <a href="mailto:shubhamvatsjha7@gmail.com" target="_blank">
-              <li>sonu@gmail.com</li>
+              <li>shubhamvatsjha7@gmail.com</li>
             </a>
           </ul>
         </div>
@@ -88,7 +90,7 @@ const Footer = () => {
         <br />
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright © 2025 - All Rights Reserved.
+          Copyright © 2026 - All Rights Reserved.
         </p>
       </div>
     </div>
