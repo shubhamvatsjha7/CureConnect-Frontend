@@ -39,7 +39,7 @@ const Navbar = () => {
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400 gap-2">
       <img
         onClick={() => navigate("/")}
-        className="w-28 sm:w-32 md:w-40 cursor-pointer"
+        className="w-24 sm:w-28 md:w-40 cursor-pointer"
         src={assets.mainlogo}
         alt=""
       />
